@@ -19,7 +19,7 @@ public class PersonDetails {
 		this.mobileNum = mobileNum;
 		this.zipCode = zipCode;
 	}
-}
+
 public String getFirstName() {
 	return firstName;
 }
@@ -75,4 +75,5 @@ public String getZipCode() {
 public void setZipCode(String zipCode) {
 	this.zipCode = zipCode;
 }
+
 }
