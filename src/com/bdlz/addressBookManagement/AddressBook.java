@@ -93,12 +93,26 @@ public class AddressBook {
 		}
 	}
 
+	private void deletePersonDetails() {
+		if(personList.isEmpty()){
+			System.out.println("There are no contacts to delete in the addressbook");
+		} else {
+			System.out.println("Enter firstname to delete the person");
+			String firstName = sc.nextLine();
+			for(int count=0;count < personList.size(); count++){
+				if(personList.get(count).getFirstName().equals(firstName)){
+					personList.remove(personList.get(count));
+				}
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("------WELCOME TO ADDRESS BOOK MANAGEMENT------");
 		AddressBook addressbook = new AddressBook();
 
 		while (choice <= 5) {
-			System.out.println("1.Add Person\n2.Edit Person Details\n3.Print Person Details\n4.To EXIT");
+			System.out.println("1.Add Person\n2.Edit Person Details\n3.Print Person Details\n4.Delete Person deatils\n5.To EXIT");
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
@@ -111,7 +125,11 @@ public class AddressBook {
 				addressbook.printPersonDetails();
 				break;
 			case 4:
+				addressbook.deletePersonDetails();
+				break;
+			case 5:
 				System.exit(0);
+				break;
 			default:
 				System.out.println("Enter Valid choice");
 
