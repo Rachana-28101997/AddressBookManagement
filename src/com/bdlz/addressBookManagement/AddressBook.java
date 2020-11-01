@@ -106,13 +106,21 @@ public class AddressBook {
 			}
 		}
 	}
-
+	private void addMultiplePerson() {
+		System.out.println("Enter how many contacts you want to add: ");
+		int numofContacts = sc.nextInt();
+		int createdContacts = 1;
+		while(createdContacts <= numofContacts) {
+				addPersonDetails();
+			createdContacts++;
+		}
+	}
 	public static void main(String[] args) {
 		System.out.println("------WELCOME TO ADDRESS BOOK MANAGEMENT------");
 		AddressBook addressbook = new AddressBook();
 
-		while (choice <= 5) {
-			System.out.println("1.Add Person\n2.Edit Person Details\n3.Print Person Details\n4.Delete Person deatils\n5.To EXIT");
+		while (choice <= 6) {
+			System.out.println("1.Add Person\n2.Edit Person Details\n3.Print Person Details\n4.Delete Person deatils\n5.Add Multiple Person\n6.To EXIT");
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
@@ -128,6 +136,9 @@ public class AddressBook {
 				addressbook.deletePersonDetails();
 				break;
 			case 5:
+				addressbook.addMultiplePerson();
+				break;
+			case 6:
 				System.exit(0);
 				break;
 			default:
